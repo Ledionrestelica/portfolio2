@@ -40,7 +40,7 @@ export default function Home() {
         <>
             <div className="container flex flex-col lg:mx-auto">
                 <p className="text-4xl px-4 py-20 w-[90%] md:text-4xl">
-                    Hello 👋 I'm Ledion Restelica - curious designer and
+                    Hello  Im Ledion Restelica a curious designer and
                     devloper based in Prishtina
                 </p>
                 <div className="px-4 gap-6 flex flex-row">
