@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer base{
     body {
-        @apply dark:bg-gray-800  bg-zinc-300
+        @apply dark:bg-costumDark  bg-[#ffffff]
     }
 }
 
