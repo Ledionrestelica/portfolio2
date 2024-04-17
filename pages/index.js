@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'; // Fix the import statement
-import { client } from './utils/client';
+import { client } from '../src/utils/client';
 import { useEffect, useState } from 'react';
   
 
