@@ -38,7 +38,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="container flex flex-col lg:mx-auto">
+            <div className="w-full px-4 max-w-[1440px] flex flex-col lg:mx-auto">
                 <p className="text-4xl px-4 py-20 w-[90%] md:text-4xl">
                     Hello  Im Ledion Restelica a curious designer and
                     devloper based in Prishtina
@@ -86,10 +86,10 @@ export default function Home() {
                     </a>
                 </div>
             </div>
-            <div className="container px-4 pt-24 lg:mx-auto">
-                    <div className="grid grid-cols-2 grid-rows-2 gap-4">
+            <div className="px-4 py-24">
+                    <div className="grid grid-cols-1 max-w-[1440px] mx-auto gap-4 md:grid md:w-full md:grid-cols-2 md:grid-rows-2 md:gap-4 ">
                         {projects.map((project, index) => (
-                            <div className='border border-red-300 flex flex-col' key={index}>
+                            <div className='border h-96 w-full border-red-300 flex flex-col' key={index}>
                                 <div>{project.client}</div>
                             </div>
                         ))}
