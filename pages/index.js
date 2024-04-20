@@ -1,49 +1,33 @@
-import { Inter } from 'next/font/google'; // Fix the import statement
-import { client } from '../src/utils/client';
-import { useEffect, useState } from 'react';
-  
+import { Inter } from 'next/font/google';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useTheme } from 'next-themes';
+import Image from 'next/image'
+import estateXimg from "../public/estatex.svg"
+import munthesImg from "../public/munthes.png"
+import aliusImg from "../public/alius.png"
 
 const inter = Inter({ subsets: ['latin'] });
 
-const EVENT_QUERY = `*[_type == 'project'] {
-    title,
-    slug,
-    coverImage,
-    duration,
-    client,
-    site,
-    tags,
-    body
-  }`;
-
 export default function Home() {
-    const [projects, setProjects] = useState([])
+    const notify = () => toast("Email copied!");
+    const { theme } = useTheme();
 
-    useEffect(() => {
-        async function getTitles() {
-            try {
-                const content = await client.fetch(EVENT_QUERY)
-                return content
-            } catch (error) {
-                console.error('Error fetching project titles:', error)
-                return []
-            }
-        }
 
-        getTitles().then((content) => {
-            console.log(content)
-            setProjects(content) // Update state with fetched data
-        })
-    }, []) // Empty dependency array to run effect only once
+    const copyEmailToClipboard = () => {
+        const email = 'ledionrestelica7@gmail.com'
+        navigator.clipboard
+            .writeText(email)
+        
+    }
 
     return (
         <>
             <div className="w-full px-4 max-w-[1440px] flex flex-col lg:mx-auto">
-                <p className="text-4xl px-4 py-20 w-[90%] md:text-4xl">
-                    Hello  Im Ledion Restelica a curious designer and
-                    devloper based in Prishtina
+                <p className="text-6xl px-2 py-20 w-full md:text-6xl lg:text-8xl">
+                    Hello I am Ledion Restelica, a frontend developer based in Prishtina
                 </p>
-                <div className="px-4 gap-6 flex flex-row">
+                <div className="px-4 gap-6 flex flex-row flex-wrap">
                     <a
                         className="hover:scale-110 transition-all ease-in-out"
                         href="https://github.com/"
@@ -84,16 +68,56 @@ export default function Home() {
                     >
                         Blog
                     </a>
-                </div>
-            </div>
-            <div className="px-4 py-24">
-                    <div className="grid grid-cols-1 max-w-[1440px] mx-auto gap-4 md:grid md:w-full md:grid-cols-2 md:grid-rows-2 md:gap-4 ">
-                        {projects.map((project, index) => (
-                            <div className='border h-96 w-full border-red-300 flex flex-col' key={index}>
-                                <div>{project.client}</div>
-                            </div>
-                        ))}
+
+                    <div onClick={copyEmailToClipboard}>
+                        <button
+                            className="hover:scale-110 transition-all ease-in-out"
+                            onClick={notify}
+                        >
+                            Email
+                        </button>
+                        <ToastContainer
+                            stacked
+                            theme={theme}
+                        />
                     </div>
+                </div>
+                <div className='px-4 pt-32 h-screen'>
+                    <p className='text-3xl font-normal md:text-4xl lg:text-6xl mb-16'>
+                        Work
+                    </p>
+                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+                        <div className='cursor-pointer w-full h-96 flex flex-col shadow-md shadow-gray-400 dark:shadow-gray-600 rounded-2xl'>
+                            <div className='flex flex-1 justify-center p-4'>
+                                <Image className='hover:scale-105 transition-all ease-in-out' src={estateXimg} width={500} height={500}></Image>
+                            </div>
+                            <div className='flex-none bg-zinc-200 hover:bg-zinc-400 dark:bg-zinc-900 rounded-2xl p-2 dark:hover:bg-gray-800 transition-all ease-in-out'>
+                                <p className='text-lg font-medium text-gray-800 dark:text-zinc-200'>EstateX</p>
+                                <p className='line-clamp-2 text-zinc-500 dark:text-zinc-400'>Created this website using Framer, Framer Motion. Complete redesign and responsive website, form submission control</p>
+                            </div>
+                        </div>
+                        <div className='cursor-pointer w-full h-96 flex flex-col shadow-md shadow-gray-400 dark:shadow-gray-600 rounded-2xl'>
+                            <div className='flex flex-1 justify-center p-4'>
+                                <Image className='hover:scale-105 transition-all ease-in-out invert dark:filter-none' src={munthesImg} width={300} height={300}></Image>
+                            </div>
+                            <div className='flex-none bg-zinc-200 hover:bg-zinc-400 dark:bg-zinc-900 rounded-2xl p-2 dark:hover:bg-gray-800 transition-all ease-in-out'>
+                                <p className='text-lg font-medium text-gray-800 dark:text-zinc-200'>Munthes.se</p>
+                                <p className='line-clamp-2 text-zinc-500 dark:text-zinc-400'>A restaurant page made with HTML, CSS and JS, made for a client in Sweden, fully responsive and functional.</p>
+                            </div>
+                        </div>
+                        <div className='cursor-pointer w-full h-96 flex flex-col shadow-md shadow-gray-400 dark:shadow-gray-600 rounded-2xl'>
+                            <div className='flex flex-1 justify-center p-4'>
+                                <Image className='hover:scale-105 transition-all ease-in-out  dark:invert object-cover' src={aliusImg} width={300} height={300}></Image>
+                            </div>
+                            <div className='flex-none bg-zinc-200 hover:bg-zinc-400 dark:bg-zinc-900 rounded-2xl p-2 dark:hover:bg-gray-800 transition-all ease-in-out'>
+                                <p className='text-lg font-medium text-gray-800 dark:text-zinc-200'>Alius</p>
+                                <p className='line-clamp-2 text-zinc-500 dark:text-zinc-400'>I made this website using framer and framer motion for different animations, including on-scroll animations, on-appear etc..</p>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
             </div>
         </>
     )
