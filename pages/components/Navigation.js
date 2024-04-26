@@ -19,7 +19,7 @@ const Navigation = () => {
   }
 
   return (
-    <div className="w-full flex justify-between px-12  mx-auto h-44  bg-transparent relative">
+    <div className="w-full flex justify-between px-4 md:px-12  mx-auto h-44  bg-transparent relative">
       <div className="text-4xl flex-1 items-center flex">
         <Button />
       </div>
