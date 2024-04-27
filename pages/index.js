@@ -31,7 +31,7 @@ export default function Home() {
         className="w-full px-4 max-w-[1440px] flex flex-col lg:mx-auto"
       >
         <p className="text-[12vw] xxl:text-[200px] px-2 py-20 w-full font-medium leading-tight font-mono">
-          I'm Ledion Portfolio/24
+          Im Ledion Portfolio/24
         </p>
         <div className="flex justify-between my-[10px] md:my-[100px]">
           <div className="flex-1 py-10 font-medium text-lg md:text-3xl lg:text-6xl font-mono">
