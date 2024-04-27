@@ -19,7 +19,12 @@ const Navigation = () => {
   }
 
   return (
-    <div className="w-full flex justify-between px-4 md:px-12  mx-auto h-44  bg-transparent relative">
+    <motion.div
+      initial={{ opacity: 0.2, scale: 0.3 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ type: "ease in" }}
+      className="w-full flex justify-between px-4 md:px-12  mx-auto h-44  bg-transparent relative"
+    >
       <div className="text-4xl flex-1 items-center flex">
         <Button />
       </div>
@@ -30,7 +35,7 @@ const Navigation = () => {
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

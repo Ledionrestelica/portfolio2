@@ -23,7 +23,7 @@ const Confettibtn = ({ content }) => {
     startVelocity: 40,
     elementCount: 70,
     dragFriction: 0.12,
-    duration: 2000,
+    duration: 4000,
     stagger: 3,
     width: "20px",
     height: "20px",
@@ -32,7 +32,25 @@ const Confettibtn = ({ content }) => {
 
   return (
     <div className="cursor-pointer" onClick={handleConfetti}>
-      <h1>{content}</h1>
+      <h1 className="flex justify-center items-center gap-4">
+        {content}
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+            className="w-8 h-8"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+            />
+          </svg>
+        </span>
+      </h1>
       <Confetti
         config={config}
         active={isConfettiActive}
