@@ -1,27 +1,28 @@
 "use client";
 import aliusImg from "../../public/alius.png";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, stagger } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Card({ src, name }) {
-  const { scrollYProgress } = useScroll();
   return (
     <>
-      <motion.div
-        whileHover={{ scale: 0.98 }}
-        className="cursor-pointer border border-black dark:border-white rounded-3xl"
-      >
-        <motion.div className="max-h-full object-cover">
+      <div className="p-2 cursor-pointer border border-black dark:border-white rounded-3xl min-h-[500px] flex flex-col">
+        <div className="relative max-h-full w-full h-full flex-1">
           <Image
-            className="rounded-3xl aspect-video object-fill"
+            className="rounded-2xl object-cover invert dark:filter-none"
             src={src}
             alt={name}
-            width={500}
-            height={500}
+            fill
           />
-        </motion.div>
-        <div className="p-2 py-6 text-2xl font-medium">{name}</div>
-      </motion.div>
+        </div>
+        <div className="text-3xl font-medium font-mono px-4 py-6 flex justify-between items-end">
+          <div>{name}</div>
+          <div className="text-lg">
+            <Link href="/alius">SEE MORE</Link>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

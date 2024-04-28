@@ -17,6 +17,7 @@ const Button = () => {
       initial={{ scale: 0.3 }}
       animate={{ scale: 1 }}
       transition={{ ease: "linear" }}
+      whileHover={{ rotate: 360, scale: 1.1, transition: { duration: 0.4 } }}
     >
       {theme === "dark" ? (
         <svg

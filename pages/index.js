@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTheme } from "next-themes";
 import Card from "./components/Card";
-import { motion, spring } from "framer-motion";
+import { motion, spring, stagger } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +27,7 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0.2, scale: 0.3 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ type: "ease in", delay: 0.2 }}
+        transition={{ type: "ease in" }}
         className="w-full px-4 max-w-[1440px] flex flex-col lg:mx-auto"
       >
         <p className="text-[12vw] xxl:text-[200px] px-2 py-20 w-full font-medium leading-tight font-mono">
@@ -47,7 +47,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0.2, scale: 0.3 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ type: "ease", delay: 0.3 }}
+          transition={{ type: "ease in" }}
           className="px-4 pt-32 h-screen"
         >
           <p className="text-4xl font-normal text-center md:text-6xl lg:text-7xl mb-20">
