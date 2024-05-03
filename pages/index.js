@@ -161,7 +161,7 @@ export default function Home() {
             Strapi
           </div>
         </div>
-        <div className="flex h-[300px] items-center gap-8">
+        <div className="flex min-h-[300px] flex-wrap items-center gap-8">
           <p className="text-4xl font-mono mr-14">Contact</p>
           <a
             className="text-2xl font-mono"
